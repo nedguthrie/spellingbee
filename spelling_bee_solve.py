@@ -66,7 +66,7 @@ if __name__ == "__main__":
         if(numLetters != 7):
             print(f'{numLetters} unique letters entered, try again with 6 letters')
 
-    wordList = read_word_list('sb_word_list.txt')
+    wordList = read_word_list('word_lists/sb_word_list.txt')
 
     solutions = sb_solve(centerLetter, outerLetters, wordList)
 
