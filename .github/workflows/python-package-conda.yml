@@ -1,6 +1,8 @@
-name: Python Package using Conda
+name: Cron job to update word list
 
-on: [push]
+on:
+  schedule:
+    - cron: '0 9 * * * *'
 
 jobs:
   update-word-list:
