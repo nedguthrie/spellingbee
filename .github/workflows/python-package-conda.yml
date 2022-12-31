@@ -3,7 +3,7 @@ name: Python Package using Conda
 on: [push]
 
 jobs:
-  build-linux:
+  update-word-list:
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 5
@@ -22,3 +22,9 @@ jobs:
     - name: Update the word list
       run: |
         python update_word_list.py
+    - name: Commit updated wordlist
+      run: |
+        git config --global user.name 'nedguthrie'
+        git config --global user.email 'nedguthrie@users.noreply.github.com'
+        git commit -am "Automated wordlist update"
+        git push
