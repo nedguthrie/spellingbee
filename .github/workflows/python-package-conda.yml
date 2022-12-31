@@ -10,7 +10,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Set up Pytho
+    - name: Set up Python
       uses: actions/setup-python@v3
     - name: Add conda to system path
       run: |
@@ -18,7 +18,7 @@ jobs:
         echo $CONDA/bin >> $GITHUB_PATH
     - name: Install dependencies
       run: |
-        conda update urllib3 beautifulsoup4
+        conda env update --file environment.yml --name base
     - name: Update the word list
       run: |
         update_word_list.py
