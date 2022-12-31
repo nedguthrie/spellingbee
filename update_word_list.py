@@ -1,3 +1,5 @@
+#! python3
+
 import urllib3
 from bs4 import BeautifulSoup
 import ast
@@ -15,7 +17,7 @@ if __name__ == "__main__":
 
     url = 'https://www.nytimes.com/puzzles/spelling-bee'
     response = http.request('GET', url)
-    soup = BeautifulSoup(response.data, features="lxml")
+    soup = BeautifulSoup(response.data, features="html.parser")
 
     scripts = soup.find_all('script')
 
