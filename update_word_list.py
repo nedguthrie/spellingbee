@@ -45,7 +45,7 @@ if __name__ == "__main__":
     yesterday = today - timedelta(1)
     today_string = datetime.strftime(today, '%Y-%m-%d')
     yesterday_string = datetime.strftime(yesterday, '%Y-%m-%d')
-    wordList = read_word_list(f'sb_word_list_{yesterday_string}.txt')
+    wordList = read_word_list(f'word_lists/sb_word_list_{yesterday_string}.txt')
 
     # Solve the puzzle using yesterday's word list
     myAnswers = sb_solve(centerLetter, outerLetters, wordList)
@@ -69,6 +69,6 @@ if __name__ == "__main__":
     # Sort the new word list and store with today's date
     wordList.sort()
 
-    with open(f'sb_word_list_{today_string}.txt', 'w') as file:
+    with open(f'word_lists/sb_word_list_{today_string}.txt', 'w') as file:
         for word in wordList:
             file.write(f'{word}\n')

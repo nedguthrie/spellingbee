@@ -41,6 +41,18 @@ def sb_solve(centerLetter: str, outerLetters: list, wordList: list) -> list:
     
     return solutions
 
+def read_word_list(word_list_file: str) -> list:
+    # create the word list from the file
+    with open(word_list_file) as file:
+        wordsFromFile = file.readlines()
+
+        # Strip the newline characters
+        wordList = []
+        for word in wordsFromFile:
+            wordList.append(word.strip('\n'))
+
+    return wordList
+
 if __name__ == "__main__":
     # Ask the user for the letters
     # must be 7 letters and they must be unique
@@ -54,14 +66,7 @@ if __name__ == "__main__":
         if(numLetters != 7):
             print(f'{numLetters} unique letters entered, try again with 6 letters')
 
-    # create teh word list from the file
-    with open('sb_word_list.txt') as file:
-        wordsFromFile = file.readlines()
-
-        # Strip the newline characters
-        wordList = []
-        for word in wordsFromFile:
-            wordList.append(word.strip('\n'))
+    wordList = read_word_list('sb_word_list.txt')
 
     solutions = sb_solve(centerLetter, outerLetters, wordList)
 
