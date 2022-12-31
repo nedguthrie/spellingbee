@@ -21,4 +21,4 @@ jobs:
         conda env update --file environment.yml --name base
     - name: Update the word list
       run: |
-        update_word_list.py
+        python update_word_list.py
