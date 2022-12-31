@@ -20,7 +20,7 @@ jobs:
         echo $CONDA/bin >> $GITHUB_PATH
     - name: Install dependencies
       run: |
-        conda env update --file environment.yml --name sbenv
+        conda create --name base urllib3 beautifulsoup4
     - name: Update the word list
       run: |
         update_word_list.py
