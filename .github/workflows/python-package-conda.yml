@@ -1,8 +1,8 @@
-name: Cron job to update word list
+name: Python Package using Conda
 
 on:
   schedule:
-    - cron: '0 9 * * * *'
+    - cron: '0 9 * * *'
 
 jobs:
   update-word-list:
