@@ -50,10 +50,13 @@ if __name__ == "__main__":
 
     # Check each of my answers to see if it is in the NYT list
     # If not, remove from the word list
+    # and add it to the invalid list
+    invalidWordList = read_word_list(f'word_lists/invalid_sb_word_list.txt')
     for word in myAnswers:
         if(word not in NYTAnswers):
             print(f'Removing "{word}" from word list')
             wordList.remove(word)
+            invalidWordList.append(word)
 
     # Check if there are words in the NYT list not in my list
     # If so, add it
@@ -64,7 +67,12 @@ if __name__ == "__main__":
 
     # Sort the new word list and store
     wordList.sort()
+    invalidWordList.sort()
 
     with open(f'word_lists/sb_word_list.txt', 'w') as file:
         for word in wordList:
+            file.write(f'{word}\n')
+
+    with open(f'word_lists/invalid_sb_word_list.txt', 'w') as file:
+        for word in invalidWordList:
             file.write(f'{word}\n')
