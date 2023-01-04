@@ -64,7 +64,7 @@ if __name__ == "__main__":
         outerLetters = list(letters[1:7])
         numLetters = len(set(letters))
         if(numLetters != 7):
-            print(f'{numLetters} unique letters entered, try again with 6 letters')
+            print(f'{numLetters} unique letters entered, try again with 7 letters')
 
     wordList = read_word_list('word_lists/sb_word_list.txt')
 
